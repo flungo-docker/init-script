@@ -25,6 +25,7 @@ Variables
 ---------
 
 * **SERVICE** the name of the container and hence the service that will be created. *(Default: `docker-service`)*
+* **CONTAINER** the name of the container *(Default: The same as the value of __SERVICE__)*
 * **DESCRIPTION** a description of the service (only used in the header of the generated init script) *(Default: "A service to provide interface to the docker container <NAME>")*
 * **TEMPLATE** the location of the template to use if you wish to use an alternative template to the default one docker-service-init *(Default: `docker-service-init`)*
 * **OUTPUTDIR** the location to output the files to including a trailing slash *(Default: `build/`)*
