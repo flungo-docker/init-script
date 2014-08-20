@@ -1,4 +1,5 @@
 SERVICE = docker-service
+CONTAINER = $(SERVICE)
 DESCRIPTION = A service to provide interface to the docker container <NAME>
 
 TEMPLATE = docker-service-init
@@ -14,10 +15,9 @@ $(OUTPUT) :
 	sed -i 's/<DESCRIPTION>/$(DESCRIPTION)/' $(OUTPUT)
 	sed -i 's/<NAME>/$(SERVICE)/' $(OUTPUT)
 
-.PHONY : clean install disable enable uninstall
+.PHONY : install disable enable uninstall clean
 
-clean :
-	rm -r build/
+build : $(OUTPUT)
 
 install : $(OUTPUT)
 	cp $(OUTPUT) $(INSTALL)
@@ -30,5 +30,8 @@ disable :
 
 uninstall : disable
 	rm $(INSTALL)
+
+clean :
+	rm -r $(OUTPUTDIR)
 	
 	
