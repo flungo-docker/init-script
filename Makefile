@@ -10,20 +10,20 @@ OUTPUT = $(OUTPUTDIR)$(SERVICE)
 INSTALLDIR = /etc/init.d/
 INSTALL = $(INSTALLDIR)$(SERVICE)
 
-$(OUTPUT) :
+$(OUTPUT) : $(OUTPUTDIR) 
 	cp $(TEMPLATE) $(OUTPUT)
 	sed -i 's/<DESCRIPTION>/$(DESCRIPTION)/' $(OUTPUT)
 	sed -i 's/<SERVICE>/$(SERVICE)/' $(OUTPUT)
 	sed -i 's/<CONTAINER>/$(CONTAINER)/' $(OUTPUT)
 
 $(OUTPUTDIR) :
-	mkdir $(OUTPUTDIR)
+	mkdir -p $(OUTPUTDIR)
 
 .PHONY : install disable enable uninstall clean
 
-build : $(OUTPUTDIR) $(OUTPUT)
+generate : $(OUTPUT)
 
-install : $(OUTPUT)
+install : generate
 	cp $(OUTPUT) $(INSTALL)
 
 enable : install

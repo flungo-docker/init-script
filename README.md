@@ -33,7 +33,7 @@ Variables
 Targets
 -------
 
-* **build** - Generates the file to build/<SERVICE>
+* **generate** - Generates the file to build/<SERVICE>
 * **install** - Builds if required and installs the init script to the `/etc/init.d` directory
 * **enable** - Installs if required and enables the script to automatically start the service on startup and stop it on shutdown
 * **disable** - Disables the script from starting at boottime and being stopped when shutdown
