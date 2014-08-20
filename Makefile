@@ -35,7 +35,7 @@ enable : install
 	update-rc.d $(SERVICE) defaults
 
 disable : $(INSTALL)
-	update-rc.d $(SERVICE) remove
+	update-rc.d -f $(SERVICE) remove
 
 uninstall : disable
 	rm $(INSTALL)
