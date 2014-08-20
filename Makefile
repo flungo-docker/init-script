@@ -19,7 +19,7 @@ $(OUTPUT) : $(OUTPUTDIR)
 $(OUTPUTDIR) :
 	mkdir -p $(OUTPUTDIR)
 
-.PHONY : install disable enable uninstall clean
+.PHONY : generate install disable enable uninstall clean
 
 generate : $(OUTPUT)
 
