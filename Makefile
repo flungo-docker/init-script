@@ -1,6 +1,6 @@
 SERVICE = docker-service
 CONTAINER = $(SERVICE)
-DESCRIPTION = A service to provide interface to the docker container <NAME>
+DESCRIPTION = A service to provide interface to the docker container <CONTAINER>
 
 TEMPLATE = docker-service-init
 
