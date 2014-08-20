@@ -27,6 +27,7 @@ case "$1" in
 	else
 		shift
 		docker top $CONTAINER ps $*
+	fi
   ;;
   *)
     echo "Usage: $0 {start|stop|restart|pause|unpause|wait|attach|build|commit|diff|export|inspect|kill|logs|rm|cp|port|top}"
