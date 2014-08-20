@@ -16,9 +16,12 @@ $(OUTPUT) :
 	sed -i 's/<SERVICE>/$(SERVICE)/' $(OUTPUT)
 	sed -i 's/<CONTAINER>/$(CONTAINER)/' $(OUTPUT)
 
+$(OUTPUTDIR) :
+	mkdir $(OUTPUTDIR)
+
 .PHONY : install disable enable uninstall clean
 
-build : $(OUTPUT)
+build : $(OUTPUTDIR) $(OUTPUT)
 
 install : $(OUTPUT)
 	cp $(OUTPUT) $(INSTALL)
