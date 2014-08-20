@@ -24,10 +24,10 @@ make <target> [<variable>=<value> ...]
 Variables
 ---------
 
-* **SERVICE** the name of the container and hence the service that will be created.
-* **DESCRIPTION** a description of the service (only used in the header of the generated init script)
-* **TEMPLATE** the location of the template to use if you wish to use an alternative template to the default one docker-service-init
-* **OUTPUTDIR** the location to output the files to including a trailing slash (Default: `build/`)
+* **SERVICE** the name of the container and hence the service that will be created. *(Default: `docker-service`)*
+* **DESCRIPTION** a description of the service (only used in the header of the generated init script) *(Default: "A service to provide interface to the docker container <NAME>")*
+* **TEMPLATE** the location of the template to use if you wish to use an alternative template to the default one docker-service-init *(Default: `docker-service-init`)*
+* **OUTPUTDIR** the location to output the files to including a trailing slash *(Default: `build/`)*
 
 Targets
 -------
