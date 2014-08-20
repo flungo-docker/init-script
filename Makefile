@@ -13,7 +13,8 @@ INSTALL = $(INSTALLDIR)$(SERVICE)
 $(OUTPUT) :
 	cp $(TEMPLATE) $(OUTPUT)
 	sed -i 's/<DESCRIPTION>/$(DESCRIPTION)/' $(OUTPUT)
-	sed -i 's/<NAME>/$(SERVICE)/' $(OUTPUT)
+	sed -i 's/<SERVICE>/$(SERVICE)/' $(OUTPUT)
+	sed -i 's/<CONTAINER>/$(CONTAINER)/' $(OUTPUT)
 
 .PHONY : install disable enable uninstall clean
 

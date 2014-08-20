@@ -1,6 +1,6 @@
 #!/bin/sh
 ### BEGIN INIT INFO
-# Provides:          <NAME>
+# Provides:          <SERVICE>
 # Required-Start:    docker
 # Required-Stop:     docker
 # Default-Start:     2 3 4 5
@@ -8,7 +8,7 @@
 # Description:       <DESCRIPTION>
 ### END INIT INFO
 
-CONTAINER=<NAME>
+CONTAINER=<CONTAINER>
 
 case "$1" in
   start|stop|restart|pause|unpause|wait|attach|build|commit|diff|export|inspect|kill|logs|rm)
