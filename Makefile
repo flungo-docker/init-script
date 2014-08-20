@@ -19,17 +19,22 @@ $(OUTPUT) : $(OUTPUTDIR) $(TEMPLATE)
 $(OUTPUTDIR) :
 	mkdir -p $(OUTPUTDIR)
 
-.PHONY : generate install disable enable uninstall clean
+$(INSTALLDIR) :
+	mkdir -p $(INSTALLDIR)
+
+$(INSTALL) : $(OUTPUT) $(INSTALLDIR)
+	cp $(OUTPUT) $(INSTALL)
+
+.PHONY : generate install enable disable uninstall clean
 
 generate : $(OUTPUT)
 
-install : generate
-	cp $(OUTPUT) $(INSTALL)
+install : $(INSTALL)
 
 enable : install
 	update-rc.d $(SERVICE) defaults
 
-disable :
+disable : $(INSTALL)
 	update-rc.d $(SERVICE) remove
 
 uninstall : disable
@@ -37,5 +42,3 @@ uninstall : disable
 
 clean :
 	rm -r $(OUTPUTDIR)
-	
-	
