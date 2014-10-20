@@ -1,7 +1,7 @@
 docker-init-script
 ==================
 
-Build/generate and install an init script for your docker containers making them run as services on Debian based systems.
+Build/generate and install an init script for your docker containers making them run as services on Debian based systems. This will quickly and easily generate a generic docker init script capable of forwarding all docker commands to the docker instance and include support for start, stop, restart so that Debian based systems will be able to safely start and shutdown the instances at the appropriate run level.
 
 Basic Usage
 -----------
