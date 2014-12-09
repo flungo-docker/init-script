@@ -12,22 +12,22 @@ CONTAINER=<CONTAINER>
 
 case "$1" in
   start|stop|restart|pause|unpause|wait|attach|build|commit|diff|export|inspect|kill|logs|rm)
-    docker $* $CONTAINER 
+    docker $* $CONTAINER
     ;;
   cp)
-	docker cp $CONTAINER:$2 $3
+    docker cp $CONTAINER:$2 $3
   ;;
   port)
-	docker cp $CONTAINER $2
+    docker cp $CONTAINER $2
   ;;
   top)
-	if [ -z $2 ]
-	then
-		docker top $CONTAINER
-	else
-		shift
-		docker top $CONTAINER ps $*
-	fi
+    if [ -z $2 ]
+    then
+      docker top $CONTAINER
+    else
+      shift
+      docker top $CONTAINER ps $*
+    fi
   ;;
   *)
     echo "Usage: $0 {start|stop|restart|pause|unpause|wait|attach|build|commit|diff|export|inspect|kill|logs|rm|cp|port|top}"
