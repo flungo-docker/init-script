@@ -11,14 +11,49 @@
 CONTAINER=<CONTAINER>
 
 case "$1" in
-  start|stop|restart|pause|unpause|wait|attach|build|commit|diff|export|inspect|kill|logs|rm)
+  start)
+    ### BEGIN PRE_START_SCRIPT ###
+    ###  END  PRE_START_SCRIPT ###
+    docker $* $CONTAINER
+    ### BEGIN POST_START_SCRIPT ###
+    ###  END  POST_START_SCRIPT ###
+    ;;
+  stop)
+    ### BEGIN PRE_STOP_SCRIPT ###
+    ###  END  PRE_STOP_SCRIPT ###
+    docker $* $CONTAINER
+    ### BEGIN POST_STOP_SCRIPT ###
+    ###  END  POST_STOP_SCRIPT ###
+    ;;
+  restart)
+    ### BEGIN PRE_RESTART_SCRIPT ###
+    ###  END  PRE_RESTART_SCRIPT ###
+    docker $* $CONTAINER
+    ### BEGIN POST_RESTART_SCRIPT ###
+    ###  END  POST_RESTART_SCRIPT ###
+    ;;
+  pause)
+    ### BEGIN PRE_PAUSE_SCRIPT ###
+    ###  END  PRE_PAUSE_SCRIPT ###
+    docker $* $CONTAINER
+    ### BEGIN POST_PAUSE_SCRIPT ###
+    ###  END  POST_PAUSE_SCRIPT ###
+    ;;
+  unpause)
+    ### BEGIN PRE_UNPAUSE_SCRIPT ###
+    ###  END  PRE_UNPAUSE_SCRIPT ###
+    docker $* $CONTAINER
+    ### BEGIN POST_UNPAUSE_SCRIPT ###
+    ###  END  POST_UNPAUSE_SCRIPT ###
+    ;;
+  wait|attach|commit|diff|export|inspect|kill|logs|rm)
     docker $* $CONTAINER
     ;;
   cp)
     docker cp $CONTAINER:$2 $3
   ;;
   port)
-    docker cp $CONTAINER $2
+    docker port $CONTAINER $2
   ;;
   top)
     if [ -z $2 ]
@@ -30,5 +65,5 @@ case "$1" in
     fi
   ;;
   *)
-    echo "Usage: $0 {start|stop|restart|pause|unpause|wait|attach|build|commit|diff|export|inspect|kill|logs|rm|cp|port|top}"
+    echo "Usage: $0 {start|stop|restart|pause|unpause|wait|attach|commit|diff|export|inspect|kill|logs|rm|cp|port|top}"
 esac

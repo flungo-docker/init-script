@@ -1,0 +1,14 @@
+# Ignore user files
+PRE_START
+POST_START
+PRE_STOP
+POST_STOP
+PRE_RESTART
+POST_RESTART
+PRE_PAUSE
+POST_PAUSE
+PRE_UNPAUSE
+POST_UNPAUSE
+
+# Ignore generated files/folders
+build/
