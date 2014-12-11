@@ -9,6 +9,10 @@ Build/generate and install an init script for your docker containers making them
   * [Targets](#targets)
   * [Script Hooks](#script-hooks)
     * [Creating Hooks](#creating-hooks)
+    * [Scripting](#scripting)
+  * [Templates](#templates)
+    * [Template Tags](#template-tags)
+    * [Template Script Hooks](#template-script-hooks)
 * [Tutorial](#tutorial)
 * [Contributing](#contributing)
 
@@ -105,7 +109,7 @@ If you do write your own template then it would be good to know about the templa
 
 The substitutions are made in the order provided so if a <DESCRIPTION> contains a <SERVICE> tag, it will be replaced.
 
-#### Script Hooks
+#### Template Script Hooks
 
 Script hooks are implemented by adding the contents of the script file after the line containing a match for `### BEGIN PRE_START_SCRIPT ###` (in the situation of marking where the `PRE_START` script should be inserted). For clarity of reading after generation, I have implemented the tags as shown below but the END tag is not required.
 
