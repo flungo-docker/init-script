@@ -10,59 +10,59 @@ export OUTPUT = $(OUTPUTDIR)$(SERVICE)
 INSTALLDIR = /etc/init.d/
 INSTALL = $(INSTALLDIR)$(SERVICE)
 
-export  PRE_START_SCRIPT    = PRE_START
-export POST_START_SCRIPT    = POST_START
-export  PRE_STOP_SCRIPT     = PRE_STOP
-export POST_STOP_SCRIPT     = POST_STOP
-export  PRE_RESTART_SCRIPT  = PRE_RESTART
-export POST_RESTART_SCRIPT  = POST_RESTART
-export  PRE_PAUSE_SCRIPT    = PRE_PAUSE
-export POST_PAUSE_SCRIPT    = POST_PAUSE
-export  PRE_UNPAUSE_SCRIPT  = PRE_UNPAUSE
-export POST_UNPAUSE_SCRIPT  = POST_UNPAUSE
+export	PRE_START_SCRIPT		= PRE_START
+export POST_START_SCRIPT		= POST_START
+export	PRE_STOP_SCRIPT			= PRE_STOP
+export POST_STOP_SCRIPT			= POST_STOP
+export	PRE_RESTART_SCRIPT	= PRE_RESTART
+export POST_RESTART_SCRIPT	= POST_RESTART
+export	PRE_PAUSE_SCRIPT		= PRE_PAUSE
+export POST_PAUSE_SCRIPT		= POST_PAUSE
+export	PRE_UNPAUSE_SCRIPT	= PRE_UNPAUSE
+export POST_UNPAUSE_SCRIPT	= POST_UNPAUSE
 
 $(OUTPUT) : $(OUTPUTDIR) $(TEMPLATE) subs.sh
-  cp $(TEMPLATE) $@
-  bash subs.sh
+	cp $(TEMPLATE) $@
+	bash subs.sh
 
 $(OUTPUTDIR) :
-  mkdir -p $@
+	mkdir -p $@
 
 $(INSTALLDIR) :
-  mkdir -p $@
+	mkdir -p $@
 
 $(INSTALL) : $(OUTPUT) $(INSTALLDIR)
-  cp $(OUTPUT) $@
+	cp $(OUTPUT) $@
 
 $(PRE_START_SCRIPT) :
-  echo "# $@ CONTENT" > $@
+	echo "# $@ CONTENT" > $@
 
 $(POST_START_SCRIPT) :
-  echo "# $@ CONTENT" > $@
+	echo "# $@ CONTENT" > $@
 
 $(PRE_STOP_SCRIPT) :
-  echo "# $@ CONTENT" > $@
+	echo "# $@ CONTENT" > $@
 
 $(POST_STOP_SCRIPT) :
-  echo "# $@ CONTENT" > $@
+	echo "# $@ CONTENT" > $@
 
 $(PRE_RESTART_SCRIPT) :
-  echo "# $@ CONTENT" > $@
+	echo "# $@ CONTENT" > $@
 
 $(POST_RESTART_SCRIPT) :
-  echo "# $@ CONTENT" > $@
+	echo "# $@ CONTENT" > $@
 
 $(PRE_PAUSE_SCRIPT) :
-  echo "# $@ CONTENT" > $@
+	echo "# $@ CONTENT" > $@
 
 $(POST_PAUSE_SCRIPT) :
-  echo "# $@ CONTENT" > $@
+	echo "# $@ CONTENT" > $@
 
 $(PRE_UNPAUSE_SCRIPT) :
-  echo "# $@ CONTENT" > $@
+	echo "# $@ CONTENT" > $@
 
 $(POST_UNPAUSE_SCRIPT) :
-  echo "# $@ CONTENT" > $@
+	echo "# $@ CONTENT" > $@
 
 .PHONY : START_SCRIPTS STOP_SCRIPTS RESTART_SCRIPTS PAUSE_SCRIPTS UNPAUSE_SCRIPTS
 
@@ -85,13 +85,13 @@ generate : $(OUTPUT)
 install : $(INSTALL)
 
 enable : install
-  update-rc.d $(SERVICE) defaults
+	update-rc.d $(SERVICE) defaults
 
 disable : $(INSTALL)
-  update-rc.d -f $(SERVICE) remove
+	update-rc.d -f $(SERVICE) remove
 
 uninstall : disable
-  rm $(INSTALL)
+	rm $(INSTALL)
 
 clean :
-  rm -r $(OUTPUTDIR)
+	rm -r $(OUTPUTDIR)
