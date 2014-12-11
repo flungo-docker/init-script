@@ -42,11 +42,12 @@ The make script also allows you to provide additional code to the executed on ev
 
 ### Variables
 
-* **SERVICE** the name of the container and hence the service that will be created. *(Default: `docker-service`)*
-* **CONTAINER** the name of the container *(Default: The same as the value of __SERVICE__)*
-* **DESCRIPTION** a description of the service (only used in the header of the generated init script) *(Default: "A service to provide interface to the docker container <NAME>")*
-* **TEMPLATE** the location of the template to use if you wish to use an alternative template to the default one docker-service-init *(Default: `docker-service-init`)*
-* **OUTPUTDIR** the location to output the files to including a trailing slash *(Default: `build/`)*
+* **SERVICE** - The name of the container and hence the service that will be created. *(Default: `docker-service`)*
+* **CONTAINER** - The name of the container *(Default: The same as the value of __SERVICE__)*
+* **DESCRIPTION** - A description of the service (only used in the header of the generated init script) *(Default: "A service to provide interface to the docker container <NAME>")*
+* **TEMPLATE** - The location of the template to use if you wish to use an alternative template to the default one docker-service-init *(Default: `docker-service-init`)*
+* **SCRIPT_DIR** - The folder where scripts can be found. Useful to make the directory a bit more organised or when using as a submodule to link to a folder in the parent directory (e.g. `../scripts`) *(Default: ``)*
+* **OUTPUTDIR** - The location to output the files to including a trailing slash *(Default: `build/`)*
 
 ### Targets
 -------
