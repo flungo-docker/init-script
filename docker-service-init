@@ -8,6 +8,8 @@
 # Description:       <DESCRIPTION>
 ### END INIT INFO
 
+CONTAINER=<CONTAINER>
+
 function usage {
   cat <<EOF
 <DESCRIPTION>
@@ -16,43 +18,81 @@ Usage: $0 {start|stop|restart|pause|unpause|wait|attach|commit|diff|export|inspe
 EOF
 }
 
-CONTAINER=<CONTAINER>
+function pre_start {
+### BEGIN PRE_START_SCRIPT ###
+###  END  PRE_START_SCRIPT ###
+}
+
+function post_start {
+### BEGIN POST_START_SCRIPT ###
+###  END  POST_START_SCRIPT ###
+}
+
+function pre_stop {
+### BEGIN PRE_STOP_SCRIPT ###
+###  END  PRE_STOP_SCRIPT ###
+}
+
+function post_stop {
+### BEGIN POST_STOP_SCRIPT ###
+###  END  POST_STOP_SCRIPT ###
+}
+
+function pre_restart {
+### BEGIN PRE_RESTART_SCRIPT ###
+###  END  PRE_RESTART_SCRIPT ###
+}
+
+function post_restart {
+### BEGIN POST_RESTART_SCRIPT ###
+###  END  POST_RESTART_SCRIPT ###
+}
+
+function pre_pause {
+### BEGIN PRE_PAUSE_SCRIPT ###
+###  END  PRE_PAUSE_SCRIPT ###
+}
+
+function post_pause {
+### BEGIN POST_PAUSE_SCRIPT ###
+###  END  POST_PAUSE_SCRIPT ###
+}
+
+function pre_unpause {
+### BEGIN PRE_UNPAUSE_SCRIPT ###
+###  END  PRE_UNPAUSE_SCRIPT ###
+}
+
+function post_unpause {
+### BEGIN POST_UNPAUSE_SCRIPT ###
+###  END  POST_UNPAUSE_SCRIPT ###
+}
 
 case "$1" in
   start)
-    ### BEGIN PRE_START_SCRIPT ###
-    ###  END  PRE_START_SCRIPT ###
+    pre_start
     docker $* $CONTAINER
-    ### BEGIN POST_START_SCRIPT ###
-    ###  END  POST_START_SCRIPT ###
+    post_start
     ;;
   stop)
-    ### BEGIN PRE_STOP_SCRIPT ###
-    ###  END  PRE_STOP_SCRIPT ###
+    pre_stop
     docker $* $CONTAINER
-    ### BEGIN POST_STOP_SCRIPT ###
-    ###  END  POST_STOP_SCRIPT ###
+    post_stop
     ;;
   restart)
-    ### BEGIN PRE_RESTART_SCRIPT ###
-    ###  END  PRE_RESTART_SCRIPT ###
+    pre_restart
     docker $* $CONTAINER
-    ### BEGIN POST_RESTART_SCRIPT ###
-    ###  END  POST_RESTART_SCRIPT ###
+    post_restart
     ;;
   pause)
-    ### BEGIN PRE_PAUSE_SCRIPT ###
-    ###  END  PRE_PAUSE_SCRIPT ###
+    pre_pause
     docker $* $CONTAINER
-    ### BEGIN POST_PAUSE_SCRIPT ###
-    ###  END  POST_PAUSE_SCRIPT ###
+    post_pause
     ;;
   unpause)
-    ### BEGIN PRE_UNPAUSE_SCRIPT ###
-    ###  END  PRE_UNPAUSE_SCRIPT ###
+    pre_unpause
     docker $* $CONTAINER
-    ### BEGIN POST_UNPAUSE_SCRIPT ###
-    ###  END  POST_UNPAUSE_SCRIPT ###
+    post_unpause
     ;;
   wait|attach|commit|diff|export|inspect|kill|logs|rm)
     docker $* $CONTAINER
