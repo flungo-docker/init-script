@@ -8,6 +8,14 @@
 # Description:       <DESCRIPTION>
 ### END INIT INFO
 
+function usage {
+  cat <<EOF
+<DESCRIPTION>
+
+Usage: $0 {start|stop|restart|pause|unpause|wait|attach|commit|diff|export|inspect|kill|logs|rm|cp|port|top}
+EOF
+}
+
 CONTAINER=<CONTAINER>
 
 case "$1" in
@@ -65,5 +73,5 @@ case "$1" in
     fi
   ;;
   *)
-    echo "Usage: $0 {start|stop|restart|pause|unpause|wait|attach|commit|diff|export|inspect|kill|logs|rm|cp|port|top}"
+    usage
 esac
