@@ -4,6 +4,18 @@
 # Expects environment variables to be set.
 # Should not be run manually
 
+# Check required variables are defined
+if [ -z $OUTPUT ]; then
+  >&2 echo "OUTPUT has not been defined"
+  exit 1
+fi
+
+# Validate variables
+if [ ! -f $OUTPUT ]; then
+  >&2 echo "OUTPUT file '$OUTPUT' does not exist"
+  exit 2
+fi
+
 # Insert of hook scripts
 
 if [ -f $PRE_START_SCRIPT ]; then
